@@ -1,10 +1,10 @@
 from animation.color_context import ColorContext
 from animation.micropyton.abc import ABC, abstractmethod
-from animation.micropyton.typing import Union
+from animation.micropyton.typing import Optional
 
 
 class Animation(ABC):
-    def __init__(self, single_cycle_ms: Union[float, None]):
+    def __init__(self, single_cycle_ms: Optional[float]):
         self.__single_cycle_ms = single_cycle_ms
 
         self.__elapsed_time_ms = 0
@@ -22,5 +22,5 @@ class Animation(ABC):
         ...
 
     @property
-    def single_cycle_ms(self) -> Union[float, None]:
+    def single_cycle_ms(self) -> Optional[float]:
         return self.__single_cycle_ms

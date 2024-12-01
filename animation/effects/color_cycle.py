@@ -1,11 +1,14 @@
+import random
+
 from animation.animation import Animation
 from animation.color import Color
+from animation.color_context import ColorContext
+
 
 class ColorCycle(Animation):
-    def __init__(self, colors: list[Color], update_cycle_time_ms: float):
-        super().__init__(update_cycle_time_ms= update_cycle_time_ms)
-
+    def __init__(self, colors: list[Color], single_cycle_ms: float):
+        super().__init__(single_cycle_ms=single_cycle_ms)
         self.__colors = colors
 
-    def update(self):
-        ...
+    def _on_update(self, context: ColorContext):
+        context.fill(color=random.choice(self.__colors))
