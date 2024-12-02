@@ -3,7 +3,7 @@ from animation.micropyton.abc import ABC, abstractmethod
 from animation.micropyton.typing import Union
 
 
-class LedDevice(ABC):
+class LedDeviceMapper(ABC):
     def __init__(self, dimensions: Union[int, list[int]]):
         assert isinstance(dimensions, int) or \
                isinstance(dimensions, list)

@@ -1,17 +1,18 @@
 import plasma
-from plasma import plasma2040
 
 from animation.color_context import ColorContext
 from animation.color import Color
-from animation.led_device import LedDevice
+from animation.led_device_mapper import LedDeviceMapper
 
 
-class WS2818ColorStrip(LedDevice):
-    def __init__(self, length: int):
-        super().__init__(dimensions=[length])
+class WS2818ColorStripMapper(LedDeviceMapper):
+    def __init__(self,
+                 strip: plasma.WS2812,
+                 mapped_indexes: list[int]):
+        super().__init__(dimensions=[len(mapped_indexes)])
 
-        self.__strip = plasma.WS2812(length, 0, 0, plasma2040.DAT, color_order=plasma.COLOR_ORDER_BGR)
-        self.__strip.start()
+        self.__indexes = mapped_indexes
+        self.__strip = strip
 
     def present(self, context: ColorContext):
         assert self.device_dimensions == context.dimensions
@@ -26,4 +27,4 @@ class WS2818ColorStrip(LedDevice):
             self.__setitem__(item, color)
 
     def __setitem__(self, key: int, color: Color):
-        self.__strip.set_rgb(key, color.b, color.g, color.r)
+        self.__strip.set_rgb(self.__indexes[key], color.b, color.g, color.r)
