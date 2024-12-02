@@ -10,6 +10,12 @@ class Animation(ABC):
         self.__elapsed_time_ms = 0
         self.__single_cycle_ms = single_cycle_ms if single_cycle_ms else 0
 
+    def start(self, context: ColorContext):
+        self._on_start(context)
+
+    def _on_start(self, context: ColorContext):
+        pass
+
     def update(self, context: ColorContext, dt: float):
         self.__elapsed_time_ms += dt
 

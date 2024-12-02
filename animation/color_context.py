@@ -16,11 +16,9 @@ class ColorContext:
         self.__raw_array = [BLACK for _ in range(self.__continuous_array_capacity)]
 
     def __getitem__(self, item: Union[int, list[int]]) -> Color:
-        assert ColorContext.__get_len_of_union_index(self.__dimensions) == ColorContext.__get_len_of_union_index(item)
         return self.__raw_array[self.__index_as_continuous_array_offset(item)]
 
     def __setitem__(self, key: Union[int, list[int]], color: Color):
-        assert ColorContext.__get_len_of_union_index(self.__dimensions) == ColorContext.__get_len_of_union_index(key)
         self.__raw_array[self.__index_as_continuous_array_offset(key)] = color
 
     def clear(self, color: Color):

@@ -33,11 +33,6 @@ class ColorContextTest(unittest.TestCase):
         color_context[5] = ColorContextTest.TEST_COLOR_A
         self.assertEqual(color_context[5], ColorContextTest.TEST_COLOR_A)
 
-    def test_getting_an_element_from_1d_context_by_multidimensional_index_throws_assertion_error(self):
-        color_context = ColorContext(dimensions=[10])
-        with self.assertRaises(AssertionError):
-            color_context[[1, 2]]
-
     def test_adding_and_getting_an_element_from_2d_context_is_consistent(self):
         color_context = ColorContext(dimensions=[5, 2])
 

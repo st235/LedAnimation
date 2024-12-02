@@ -28,6 +28,9 @@ class Color:
             self.__g == other.g and \
             self.__b == other.b
 
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
     @staticmethod
     def __is_color_component(value: int) -> bool:
         return isinstance(value, int) and 0 <= value <= 255

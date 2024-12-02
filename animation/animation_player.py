@@ -3,7 +3,7 @@ from animation.color_context import ColorContext
 from animation.led_device import LedDevice
 from animation.time_utils import time_ms
 
-class AnimationEngine:
+class AnimationPlayer:
     def __init__(self,
                  animation: Animation,
                  led_device: LedDevice):
@@ -11,6 +11,9 @@ class AnimationEngine:
         self.__color_context = ColorContext(dimensions=led_device.device_dimensions)
         self.__led_device = led_device
         self.__last_cycle_start_time_ms = 0
+
+        # Initialise animation.
+        self.__animation.start(context=self.__color_context)
 
     def advance_one_step(self):
         current_time_ms = time_ms()
