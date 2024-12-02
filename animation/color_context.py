@@ -23,7 +23,7 @@ class ColorContext:
         assert ColorContext.__get_len_of_union_index(self.__dimensions) == ColorContext.__get_len_of_union_index(key)
         self.__raw_array[self.__index_as_continuous_array_offset(key)] = color
 
-    def fill(self, color: Color):
+    def clear(self, color: Color):
         for i in range(self.__continuous_array_capacity):
             self.__raw_array[i] = color
 

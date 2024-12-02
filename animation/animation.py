@@ -15,10 +15,10 @@ class Animation(ABC):
 
         if self.__elapsed_time_ms > self.__single_cycle_ms:
             self.__elapsed_time_ms = 0
-            self._on_update(context=context)
+            self._on_update(context=context, dt=dt)
 
     @abstractmethod
-    def _on_update(self, context: ColorContext):
+    def _on_update(self, context: ColorContext, dt: float):
         ...
 
     @property

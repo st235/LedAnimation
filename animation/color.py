@@ -66,3 +66,13 @@ JADE = Color(0, 255, 40)
 AMBER = Color(255, 100, 0)
 
 OLD_LACE = Color(253, 245, 230)
+
+def lerp(start: Color, end: Color, progress: float) -> Color:
+    if progress < 0:
+        progress = 0
+    elif progress > 1.0:
+        progress = 1.0
+
+    return Color(r=int((end.r - start.r) * progress + start.r),
+                 g=int((end.g - start.g) * progress + start.g),
+                 b=int((end.b - start.b) * progress + start.b))
