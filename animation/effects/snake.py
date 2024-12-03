@@ -11,7 +11,7 @@ class Snake(Animation):
                  snake_moving_speed_ms: float,
                  interpolate_snake_segments: bool = True):
         # Request update every possible time.
-        super().__init__(single_cycle_ms=snake_moving_speed_ms)
+        super().__init__(update_intervals_ms=snake_moving_speed_ms)
 
         assert snake_size >= 1
 

@@ -1,7 +1,7 @@
 import random
 
 from animation.animation import Animation
-from animation.color import Color, lerp
+from animation.color import Color
 from animation.color_context import ColorContext
 
 
@@ -12,7 +12,7 @@ class Progress(Animation):
                  progress_speed_ms: float,
                  stop_when_completed: bool = False):
         # Request update every possible time.
-        super().__init__(single_cycle_ms=progress_speed_ms)
+        super().__init__(update_intervals_ms=progress_speed_ms)
 
         assert len(progress_colors) > 0
 

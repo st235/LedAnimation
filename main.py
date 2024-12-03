@@ -19,9 +19,12 @@ strip.start()
 player = AnimationPlayer()
 
 player.add_animation(
-    animation=Fade(
-        color=AMBER,
-        fade_duration_ms=1000,
+    animation=Sparkle(
+        sparkling_colors=[AMBER, GOLD, YELLOW],
+        background_color=OLD_LACE,
+        min_spawning_interval_ms=250,
+        sparkle_min_fade_duration_ms=1000,
+        sparkle_max_fade_duration_ms=3000,
     ),
     device_mapper=WS2818ColorStripMapper(
         strip=strip,
@@ -30,18 +33,18 @@ player.add_animation(
 )
 
 player.add_animation(
-    animation=Sparkle(
-        background_color=BLUE,
-        sparkling_colors=[WHITE, OLD_LACE],
-        min_spawning_interval_ms=200,
-        sparkle_min_fade_duration_ms=1000,
-        sparkle_max_fade_duration_ms=2000,
+    animation=Progress(
+        progress_colors=[RED],
+        background_color=BLACK,
+        progress_speed_ms=1000,
+        stop_when_completed=False,
     ),
     device_mapper=WS2818ColorStripMapper(
         strip=strip,
         mapped_indexes=[i for i in range(50) if i % 2 != 0]
     ),
 )
+
 
 player.start()
 

@@ -13,7 +13,7 @@ class Sparkle(Animation):
                  sparkle_min_fade_duration_ms: float,
                  sparkle_max_fade_duration_ms: float):
         # Request update every possible time.
-        super().__init__(single_cycle_ms=None)
+        super().__init__(update_intervals_ms=None)
 
         assert len(sparkling_colors) > 0
         assert sparkle_min_fade_duration_ms <= sparkle_max_fade_duration_ms
