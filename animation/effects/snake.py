@@ -1,5 +1,5 @@
 from animation.animation import Animation
-from animation.color import Color, lerp
+from animation.color import Color, _lerp
 from animation.color_context import ColorContext
 
 
@@ -36,7 +36,7 @@ class Snake(Animation):
             snake_segment_position = (self.__snake_head_position - i) % len(context)
 
             if self.__interpolate_snake_segments:
-                context[snake_segment_position] = lerp(start=self.__snake_color, end=self.__background_color, progress=i * snake_partition)
+                context[snake_segment_position] = _lerp(start=self.__snake_color, end=self.__background_color, progress=i * snake_partition)
             else:
                 context[snake_segment_position] = self.__snake_color
 

@@ -1,7 +1,7 @@
 import random
 
 from animation.animation import Animation
-from animation.color import Color, lerp
+from animation.color import Color, _lerp
 from animation.color_context import ColorContext
 
 
@@ -46,7 +46,7 @@ class Sparkle(Animation):
                 # Inverse as elapsed_since_beginning_ms is decreasing.
                 progress = 1.0 - elapsed_since_beginning_ms / max_duration_ms
 
-                context[i] = lerp(start=selected_color, end=self.__background_color, progress=progress)
+                context[i] = _lerp(start=selected_color, end=self.__background_color, progress=progress)
 
                 # Decrease progress.
                 self.__current_durations_ms[i] -= dt

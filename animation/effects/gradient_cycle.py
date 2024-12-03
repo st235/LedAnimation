@@ -1,7 +1,7 @@
 from animation.micropyton.typing import Union
 
 from animation.animation import Animation
-from animation.color import Color, lerp
+from animation.color import Color, _lerp
 from animation.color_context import ColorContext
 
 
@@ -32,12 +32,12 @@ class GradientCycle(Animation):
 
         current_color = self.__colors[self.__selected_color_index]
         next_color = self.__colors[(self.__selected_color_index + 1) % len(self.__colors)]
-        context.clear(lerp(start=current_color,
-                           end=next_color,
-                           progress=self.__current_time_ms / current_transition_time_ms))
+        context.clear(_lerp(start=current_color,
+                            end=next_color,
+                            progress=self.__current_time_ms / current_transition_time_ms))
 
         self.__current_time_ms += dt
-        if self.__current_time_ms > current_transition_time_ms:
+        if self.__current_time_ms >= current_transition_time_ms:
             self.__current_time_ms = 0.0
             self.__selected_color_index = (self.__selected_color_index + 1) % len(self.__colors)
             self.__current_transition_duration_index = \

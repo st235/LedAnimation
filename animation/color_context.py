@@ -1,4 +1,5 @@
-from animation.color import Color, BLACK
+from animation import _COLOR_DISABLED
+from animation.color import Color
 from animation.micropyton.typing import Union
 
 
@@ -13,7 +14,7 @@ class ColorContext:
             self.__dimensions = dimensions
 
         self.__continuous_array_capacity = ColorContext.__get_dimensions_as_continuous_array_length(self.__dimensions)
-        self.__raw_array = [BLACK for _ in range(self.__continuous_array_capacity)]
+        self.__raw_array = [_COLOR_DISABLED for _ in range(self.__continuous_array_capacity)]
 
     def __getitem__(self, item: Union[int, list[int]]) -> Color:
         return self.__raw_array[self.__index_as_continuous_array_offset(item)]

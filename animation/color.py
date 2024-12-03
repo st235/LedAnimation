@@ -35,42 +35,7 @@ class Color:
     def __is_color_component(value: int) -> bool:
         return isinstance(value, int) and 0 <= value <= 255
 
-
-RED = Color(255, 0, 0)
-
-YELLOW = Color(255, 150, 0)
-
-ORANGE = Color(255, 40, 0)
-
-GREEN = Color(0, 255, 0)
-
-TEAL = Color(0, 255, 120)
-
-CYAN = Color(0, 255, 255)
-
-BLUE = Color(0, 0, 255)
-
-PURPLE = Color(180, 0, 255)
-
-MAGENTA = Color(255, 0, 20)
-
-WHITE = Color(255, 255, 255)
-
-BLACK = Color(0, 0, 0)
-
-GOLD = Color(255, 222, 30)
-
-PINK = Color(242, 90, 255)
-
-AQUA = Color(50, 255, 255)
-
-JADE = Color(0, 255, 40)
-
-AMBER = Color(255, 100, 0)
-
-OLD_LACE = Color(253, 245, 230)
-
-def lerp(start: Color, end: Color, progress: float) -> Color:
+def _lerp(start: Color, end: Color, progress: float) -> Color:
     if progress < 0:
         progress = 0
     elif progress > 1.0:
