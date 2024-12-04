@@ -1,0 +1,14 @@
+@startuml
+
+
+abstract class Animation {
+    + update_intervals_ms: list[float]
+
+    + constructor(update_intervals_ms: Optional[Union[float, list[float]]])
+    + start(context: ColorContext)
+    # _on_start(context: ColorContext)
+    + update(context: ColorContext, dt: float)
+    # _on_update(context: ColorContext, dt: float)
+}
+
+@enduml

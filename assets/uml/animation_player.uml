@@ -1,0 +1,11 @@
+@startuml
+
+
+abstract class AnimationPlayer {
+    + constructor()
+    + add_animation(animation: Animation, device_mapper: LedDeviceMapper)
+    + start()
+    + advance_one_step()
+}
+
+@enduml

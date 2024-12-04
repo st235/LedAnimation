@@ -1,0 +1,10 @@
+@startuml
+
+
+abstract class LedDeviceMapper {
+    + device_dimensions: Union[int, list[int]]
+    + constructor(dimensions: Union[int, list[int]])
+    + present(context: ColorContext)
+}
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+
+
+abstract class ColorContext {
+    + constructor(dimensions: Union[int, list[int]])
+    + __getitem__(item: Union[int, list[int]]) -> Color
+    + __setitem__(key: Union[int, list[int]], color: Color)
+    + clear(color: Color)
+    + __len__() -> int
+    + dimensions() -> Union[int, list[int]]
+}
+
+@enduml
