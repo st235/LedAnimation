@@ -165,4 +165,13 @@ The list of effects is:
 - SNOWFLAKES
 - SPARKLES
 
+## A few more photos of the project
+
+| Red Solid Color                            | Blue Solid Color                              |
+|--------------------------------------------|-----------------------------------------------|
+| ![Red Star](./assets/images/red_star.jpeg) | ![Blue Star](./assets/images/blue_star.jpeg)  |
+
+> [!NOTE]
+> See more examples at [`MicroLED` Youtube Playlist](https://www.youtube.com/playlist?list=PLucKuGqiOAE_1GyYPRy1i3J4XSmMSZjE9).
+
 
